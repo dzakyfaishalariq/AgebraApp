@@ -24,7 +24,7 @@
                         <a class="nav-link tombol" href="#">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tombol" href="#">Register</a>
+                        <a class="nav-link tombol" href="/register">Register</a>
                     </li>
                 </ul>
             </div>

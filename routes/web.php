@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home', ['title' => 'Home']);
+    $data = User::all();
+    $file = Storage::url('app');
+    return view('home', ['title' => 'Home', 'kumpulan_data' => $data, 'file' => $file]);
 });
+Route::get('/register', [UserController::class, 'index']);
+Route::post('/register/applod', [UserController::class, 'create']);

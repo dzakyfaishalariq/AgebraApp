@@ -18,9 +18,14 @@ return new class extends Migration
             $table->string('name');
             $table->string('jenis_kelamin');
             $table->string('jenjang_pendidikan');
-            $table->string('umur');
+            //tabel umur
+            $table->integer('umur');
+            //tabel tempat tanggal lahir
+            $table->string('tempat_lahir');
+            $table->date('tanggal_lahir');
             $table->string('alamat');
-            //buat tabel untuk input foto
+            //buat tabel untuk input file foto
+            $table->string('nama_foto');
             $table->string('foto');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
