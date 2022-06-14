@@ -1,0 +1,14 @@
+/*buat animasi login bergeser dari bawah ke atas transisi dari blur ke asli*/
+.animasi_login{
+    animation: animasi_login 1s;
+}
+@keyframes animasi_login {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

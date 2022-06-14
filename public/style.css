@@ -52,3 +52,38 @@
         transform: scale(1.1);
     }
 }
+/*membuat animasi gambar baru masuk dari bawah ke atas tansisi dari blur ke asli*/
+.animasi_masuk_web{
+    animation: animasi_masuk_web 1s;
+}
+@keyframes animasi_masuk_web {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/*membuat animasi dari atas ke bawah pada navbar transisi dari blur ke asli*/
+.animasi_navbar{
+    animation: animasi_navbar 1s;
+}
+@keyframes animasi_navbar {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/*membuat tampilan jam dijital berserta bingkainya*/
+#jam_dijital{
+    font-size: 50px;
+    color: #4CAF50;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}

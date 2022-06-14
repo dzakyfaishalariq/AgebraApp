@@ -21,5 +21,9 @@ Route::get('/', function () {
     $file = Storage::url('app');
     return view('home', ['title' => 'Home', 'kumpulan_data' => $data, 'file' => $file]);
 });
-Route::get('/register', [UserController::class, 'index']);
+Route::get('/register', [UserController::class, 'index'])->middleware('guest');
 Route::post('/register/applod', [UserController::class, 'create']);
+//system login
+Route::get('/login', [UserController::class, 'login'])->middleware('guest');
+Route::post('/login/applod', [UserController::class, 'login_system']);
+Route::get('/logout', [UserController::class, 'logout']);

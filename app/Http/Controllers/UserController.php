@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -18,7 +19,40 @@ class UserController extends Controller
         //tampilkan view register
         return view('register', ['title' => $title]);
     }
-
+    /**
+     * tampilan login
+     */
+    public function login()
+    {
+        $title = 'Login';
+        return view('login', ['title' => $title]);
+    }
+    /**
+     * Fungsi sysytem login
+     */
+    public function login_system(Request $request)
+    {
+        $validatedata = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+        if (Auth::attempt($validatedata)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/');
+        } else {
+            return redirect('/login')->with('error', 'Email atau Password Salah');
+        }
+    }
+    /**
+     * login logout
+     */
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
     /**
      * Show the form for creating a new resource.
      *

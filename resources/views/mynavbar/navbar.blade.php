@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg bg-success">
+<nav class="navbar sticky-top navbar-expand-lg bg-success animasi_navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Algebra</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,14 +19,27 @@
                         <a class="nav-link tombol">Disabled</a>
                     </li>
                 </ul>
+                <!--jika login berhasil maka tampilkan nama user dan tombol logout-->
+                @auth
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <!--tampilin gambar user-->
+                            <img src="{{ Auth::user()->foto }}" alt="avatar" class="rounded-circle" width="30" height="30">{{ Auth::user()->name }}
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tombol" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                @else
                 <ul class=" navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link tombol" href="#">Login</a>
+                        <a class="nav-link tombol" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link tombol" href="/register">Register</a>
                     </li>
                 </ul>
+                @endauth
             </div>
         </div>
 </nav>
