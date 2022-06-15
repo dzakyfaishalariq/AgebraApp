@@ -23,7 +23,7 @@
     @endif
     <div class="row">
         <div class="col-md-9 offset-md-1">
-            <div class="card">
+            <div class="card shadow-lg p-3 mb-5 bg-body rounded">
                 <div class="card-header edit-h">
                     <h3 class=" text-center">Register</h3>
                 </div>

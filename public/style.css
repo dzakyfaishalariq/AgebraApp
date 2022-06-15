@@ -87,3 +87,17 @@
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
 }
+/*membuat animasi angka pas baru masuk web bergerak*/
+.animasi_angka{
+    animation: animasi_angka 1s;
+}
+@keyframes animasi_angka {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

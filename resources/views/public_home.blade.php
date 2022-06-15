@@ -3,11 +3,10 @@
         <!---- ukuran gambar 500 x 500 --->
         <img src="https://source.unsplash.com/1200x400?teknologi" class="card-img" alt="gambar" width="1000" height="500">
         <div class="card-img-overlay">
-        <h1 class="card-title animasi_masuk_web">Algebra App</h1>
-        <h1 class="card-title animasi_masuk_web">Selamat datang {{ Auth::user()->name }}</h1>
-        <p class="card-text animasi_masuk_web">Tempat untuk berselancar ilmu baik dengan memanfaatkan platform yang kami buat ini atau melakukan pembelajaran di dalamnya</p>
-        <h1 class="card-text animasi_masuk_web" id="perkiraan_cuaca"></h1>
-        <h1 id="jam_dijital" class=" card-text animasi_masuk_web"></h1>
+        <h1 class="card-title">Algebra App</h1>
+        <p class="card-text">Tempat untuk berselancar ilmu baik dengan memanfaatkan platform yang kami buat ini atau melakukan pembelajaran di dalamnya</p>
+        <h1 class="card-text" id="perkiraan_cuaca"></h1>
+        <h1 id="jam_dijital" class=" card-text"></h1>
         </div>
     </div>
     <div class="row">
@@ -30,7 +29,7 @@
                     <h1 class=" text-center animasi_angka">0</h1>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class=" btn btn-info btn-block">Kelik</a>
+                    <a href="#" class=" btn btn-info btn-block rounded-pill">Kelik</a>
                 </div>
             </div>
         </div>
@@ -48,7 +47,7 @@
                     <h1 class=" text-center animasi_angka">0</h1>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class=" btn btn-info btn-block">Kelik</a>
+                    <a href="#" class=" btn btn-info btn-block rounded-pill">Kelik</a>
                 </div>
             </div>
         </div>
@@ -67,11 +66,12 @@
                 </div>
                 <!--buat tombol ukuran memanjang-->
                 <div class="card-footer">
-                    <a href="#" class=" btn btn-info btn-block">Kelik</a>
+                    <a href="#" class=" btn btn-info btn-block rounded-pill">Kelik</a>
                 </div>
             </div>
         </div>
     </div>
+    
     <!---perkiraan cuaca --->
     <script>
         var x = document.getElementById("perkiraan_cuaca");

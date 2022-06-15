@@ -12,3 +12,16 @@
         transform: translateY(0);
     }
 }
+/*buat animasi tombol dari kecil kebesar dan tetapkan ukuran besar apabila di sentu cursor */
+.animasi_tombol:hover{
+    animation: animasi_tombol 1s;
+}
+@keyframes animasi_tombol {
+    from {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+    
+}

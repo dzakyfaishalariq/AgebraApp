@@ -30,16 +30,16 @@
                             @csrf
                             <div class="form-group animasi_login">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control shadow-lg p-3 mb-5 bg-body rounded" id="email" name="email" placeholder="Email">
+                                <input type="email" class="form-control shadow-lg p-3 mb-5 bg-body rounded" id="email" name="email" placeholder="Email" required>
                             </div>
                             <div class="form-group animasi_login">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control shadow-lg p-3 mb-5 bg-body rounded" id="password" name="password" placeholder="Password">
+                                <input type="password" class="form-control shadow-lg p-3 mb-5 bg-body rounded" id="password" name="password" placeholder="Password" required>
                             </div>
                             <hr>
-                            <button type="submit" class="btn btn-primary animasi_login">Login</button>
-                            <a href="/register" class=" btn btn-warning animasi_login">Register</a>
-                            <a href="/" class=" btn btn-info animasi_login">Kembali</a>
+                            <button type="submit" class="btn btn-primary animasi_tombo animasi_login animasi_tombol">Login</button>
+                            <a href="/register" class=" btn btn-warning animasi_tombol animasi_login">Register</a>
+                            <a href="/" class=" btn btn-info animasi_tombol animasi_login">Kembali</a>
                         </form>
                     </div>
                 </div>
