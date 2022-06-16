@@ -39,11 +39,19 @@
                     </ul>
                 @else
                 <ul class=" navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link tombol rounded-pill" href="/login">Login</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle tombol  rounded-pill" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Login</a>
+                        <ul class="dropdown-menu ms-auto" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/login">Login Perserta</a></li>
+                            <li><a class="dropdown-item" href="#">Login Pengajar</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link tombol rounded-pill" href="/register">Register</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle tombol rounded-pill" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Register</a>
+                        <ul class="dropdown-menu ms-auto" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/register">Perserta</a></li>
+                            <li><a class="dropdown-item" href="/register_pengajar">Pengajar</a></li>
+                        </ul>
                     </li>
                 </ul>
                 @endauth

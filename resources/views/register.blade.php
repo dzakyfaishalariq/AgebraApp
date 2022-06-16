@@ -126,6 +126,9 @@
                         </div>
                     </form>
                 </div>
+                <div class="card-footer edit-h">
+                    <br>
+                </div>
             </div>
         </div>
     </div>

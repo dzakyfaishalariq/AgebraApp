@@ -87,11 +87,16 @@ class UserController extends Controller
         $foto = $request->file('foto');
         //nama file
         $nama_file = $foto->getClientOriginalName();
-        //simpan file ke public
-        $foto->move(public_path('img'), $nama_file);
+        // jika nama file sudah ada jangan masukkan ke database
+        if (User::where('nama_foto', $nama_file)->exists()) {
+            return redirect('/register')->with('error', 'Nama foto sudah ada yang make silahkan ganti nama foto');
+        } else {
+            //simpan file ke public
+            $foto->move(public_path('img_database'), $nama_file);
+        }
         //simpan nama file ke database
         $user->nama_foto = $nama_file;
-        $user->foto = 'img/' . $nama_file;
+        $user->foto = 'img_database/' . $nama_file;
         //email
         $email = $request->email;
         //jika email sudah ada tampilkan error

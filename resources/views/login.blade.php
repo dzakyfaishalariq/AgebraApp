@@ -23,7 +23,7 @@
             <div class="col-md-6 offset-md-3">
                 <div class="card animasi_login shadow-lg p-3 mb-5 bg-body rounded">
                     <div class="card-header bg-success text-white">
-                        <h3 class=" text-center">Login</h3>
+                        <h3 class=" text-center">Login Perserta</h3>
                     </div>
                     <div class="card-body">
                         <form action="/login/applod" method="POST">
