@@ -43,7 +43,7 @@
                         <a class="nav-link dropdown-toggle tombol  rounded-pill" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Login</a>
                         <ul class="dropdown-menu ms-auto" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/login">Login Perserta</a></li>
-                            <li><a class="dropdown-item" href="#">Login Pengajar</a></li>
+                            <li><a class="dropdown-item" href="/login_pengajar">Login Pengajar</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

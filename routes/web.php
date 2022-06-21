@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Pengajar;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\UserController;
@@ -18,16 +19,22 @@ use App\Http\Controllers\PengajarController;
 */
 
 Route::get('/', function () {
-    $data = User::all();
-    $file = Storage::url('app');
-    return view('home', ['title' => 'Home', 'kumpulan_data' => $data, 'file' => $file]);
+    return view('home', ['title' => 'Home']);
 });
+Route::get('/pengajar', function () {
+    return view('pengajar.pengajar_home', ['title' => 'Dashborad Pengajar']);
+})->middleware('auth:pengajar');
 //register perserta
 Route::get('/register', [UserController::class, 'index'])->middleware('guest');
 Route::post('/register/applod', [UserController::class, 'create']);
-//system login
+//system login perserta
 Route::get('/login', [UserController::class, 'login'])->middleware('guest');
 Route::post('/login/applod', [UserController::class, 'login_system']);
 Route::get('/logout', [UserController::class, 'logout']);
 //register pengajar
 Route::get('/register_pengajar', [PengajarController::class, 'index'])->middleware('guest');
+Route::post('/register_pengajar/applod', [PengajarController::class, 'store']);
+//system login pengajar
+Route::get('/login_pengajar', [PengajarController::class, 'login_pengajar'])->middleware('guest');
+Route::post('/login_pengajar/applod', [PengajarController::class, 'login_pengajar_system']);
+Route::get('/logout_pengajar', [PengajarController::class, 'logout_pengajar']);

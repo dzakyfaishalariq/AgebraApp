@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengajar;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PengajarController extends Controller
 {
@@ -36,9 +38,80 @@ class PengajarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //tambah data pengajar ke database
+        $pengajar = new Pengajar;
+        //nama guru
+        $pengajar->nama_guru = $request->nama_guru;
+        // nip
+        $pengajar->nip = $request->nip;
+        // alamat
+        $pengajar->alamat = $request->alamat;
+        // no_hp
+        $pengajar->no_hp = $request->no_hp;
+        // email
+        $pengajar->email = $request->email;
+        // password
+        $password = $request->password;
+        $pengajar->password = bcrypt($password);
+        // foto
+        $validatefoto = $request->validate([
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+        $foto = $request->file('foto');
+        //nama file
+        $nama_file = $foto->getClientOriginalName();
+        // jika nama file sudah ada jangan masukkan ke database
+        if (Pengajar::where('nama_foto', $nama_file)->exists()) {
+            return redirect('/register_pengajar')->with('error', 'Nama foto sudah ada yang make silahkan ganti nama foto');
+        } else {
+            //simpan file ke public
+            $foto->move(public_path('img_databse_guru'), $nama_file);
+        }
+        //simpan nama file ke database
+        $pengajar->foto = 'img_databse_guru/' . $nama_file;
+        $pengajar->nama_foto = $nama_file;
+        //simpan data pengajar ke database
+        $pengajar->save();
+        //redirect ke halaman registrasi dan tampilkan pesan sukses atau tidak
+        if ($pengajar) {
+            return redirect('/register_pengajar')->with('success', 'Data berhasil ditambahkan');
+        } else {
+            return redirect('/register_pengajar')->with('error', 'Data gagal ditambahkan');
+        }
     }
-
+    /**
+     * Login pengajar
+     */
+    public function login_pengajar()
+    {
+        return view('login_pengajar', ['title' => 'Login Pengajar']);
+    }
+    /**
+     * Login pengajar system
+     */
+    public function login_pengajar_system(Request $request)
+    {
+        $validatedata = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+        // cocokan Auth ke database pengajar dari inputan email dan password
+        if (Auth::guard('pengajar')->attempt($validatedata)) {
+            // jika cocokan true
+            return redirect('/pengajar');
+        } else {
+            // jika cocokan false
+            return redirect('/login_pengajar')->with('error', 'Email atau Password salah');
+        }
+    }
+    /**
+     * Logout pengajar
+     */
+    public function logout_pengajar()
+    {
+        Auth::guard('pengajar')->logout();
+        return redirect('/');
+    }
     /**
      * Display the specified resource.
      *

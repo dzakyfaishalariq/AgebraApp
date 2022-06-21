@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('no_hp');
             $table->string('email');
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->rememberToken();
             $table->string('foto');
             $table->string('nama_foto');
             $table->timestamps();

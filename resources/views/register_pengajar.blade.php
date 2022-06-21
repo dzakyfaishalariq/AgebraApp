@@ -17,7 +17,95 @@
                         <h3 class=" text-center">Register Pengajar</h3>
                     </div>
                     <div class="card-body">
-                        
+                        <form action="/register_pengajar/applod" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="nama">Nama</label>
+                                        <input type="text" class="form-control shadow-lg bg-body rounded" name="nama_guru" id="nama" placeholder="Nama" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <!--nip ---->
+                                    <div class="form-group">
+                                        <label for="nip">NIP</label>
+                                        <input type="text" class="form-control shadow-lg bg-body rounded" name="nip" id="nip" placeholder="NIP" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <!--alamat text area -->
+                                    <div class="form-group">
+                                        <label for="alamat">Alamat</label>
+                                        <textarea class="form-control shadow-lg bg-body rounded" name="alamat" id="alamat" rows="3" placeholder="Alamat" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <!-- no hp -->
+                                    <div class="form-group">
+                                        <label for="no_hp">No HP</label>
+                                        <input type="text" class="form-control shadow-lg bg-body rounded" name="no_hp" id="no_hp" placeholder="No HP" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <!-- email -->
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control shadow-lg bg-body rounded" name="email" id="email" placeholder="Email" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <!-- password -->
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control shadow-lg bg-body rounded" name="password" id="password" placeholder="Password" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <!-- aplod file foto -->
+                                    <div class="form-group">
+                                        <label for="foto">Foto</label>
+                                        <input type="file" class="form-control shadow-lg bg-body rounded" name="foto" id="foto" placeholder="Foto" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-warning btn-block shadow-lg">Register</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <button type="reset" class="btn btn-danger btn-block shadow-lg">Reset</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <!--login -->
+                                    <div class="form-group">
+                                        <a href="/login" class="btn btn-success btn-block shadow-lg">Login</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <!--kembali -->
+                                    <div class="form-group">
+                                        <a href="/" class="btn btn-primary btn-block shadow-lg">Kembali</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

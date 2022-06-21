@@ -40,6 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'pengajar' => [
+            'driver' => 'session',
+            'provider' => 'pengajars',
+        ],
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
     ],
 
     /*
@@ -63,6 +71,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'pengajars' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Pengajar::class,
         ],
 
         // 'users' => [
@@ -89,6 +101,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'pengajars' => [
+            'provider' => 'pengajars',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

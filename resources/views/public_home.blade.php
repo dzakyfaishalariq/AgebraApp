@@ -29,7 +29,7 @@
                     <h1 class=" text-center animasi_angka">0</h1>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class=" btn btn-info btn-block rounded-pill">Kelik</a>
+                    <a href="#" class=" btn btn-info tombol_tengah rounded-pill">Lihat Kelas</a>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                     <h1 class=" text-center animasi_angka">0</h1>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class=" btn btn-info btn-block rounded-pill">Kelik</a>
+                    <a href="#" class=" btn btn-info tombol_tengah rounded-pill">Lihat Peringkat</a>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
                 </div>
                 <!--buat tombol ukuran memanjang-->
                 <div class="card-footer">
-                    <a href="#" class=" btn btn-info btn-block rounded-pill">Kelik</a>
+                    <a href="#" class=" btn btn-info tombol_tengah rounded-pill">Lihat Pelajaran</a>
                 </div>
             </div>
         </div>

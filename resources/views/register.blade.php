@@ -112,15 +112,20 @@
                         <hr>
                         <!---button register-->
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <button type="submit" class="btn btn-primary btn-block">Register</button>
                             </div>
                             <hr>
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <button type="reset" class="btn btn-danger btn-block shadow-lg">Reset</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
                                 <a href="/login" class="btn btn-secondary btn-block">Login</a>
                             </div>
                             <hr>
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <a href="/" class="btn btn-warning btn-block">Kembali</a>
                             </div>
                         </div>
