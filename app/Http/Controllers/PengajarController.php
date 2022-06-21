@@ -107,10 +107,12 @@ class PengajarController extends Controller
     /**
      * Logout pengajar
      */
-    public function logout_pengajar()
+    public function logout_pengajar(Request $request)
     {
         Auth::guard('pengajar')->logout();
-        return redirect('/');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/')->with('success', 'Logout Berhasil');
     }
     /**
      * Display the specified resource.

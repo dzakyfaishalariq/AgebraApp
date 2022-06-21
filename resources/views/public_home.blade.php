@@ -1,4 +1,9 @@
 <div class=" container-fluid">
+    @if (session('success'))
+        <script>
+            alert('{{ session('success') }}');
+        </script>
+    @endif
     <div class="card bg-dark text-white text-center animasi_masuk_web shadow-lg p-3 mb-5 bg-body rounded">
         <!---- ukuran gambar 500 x 500 --->
         <img src="https://source.unsplash.com/1200x400?teknologi" class="card-img" alt="gambar" width="1000" height="500">

@@ -44,6 +44,7 @@
                         <ul class="dropdown-menu ms-auto" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/login">Login Perserta</a></li>
                             <li><a class="dropdown-item" href="/login_pengajar">Login Pengajar</a></li>
+                            <li><a class="dropdown-item" href="/login_pengajar">Login Admin</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
