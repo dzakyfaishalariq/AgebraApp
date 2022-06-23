@@ -5,6 +5,7 @@ use App\Models\Pengajar;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PengajarController;
 
 /*
@@ -24,6 +25,9 @@ Route::get('/', function () {
 Route::get('/pengajar', function () {
     return view('pengajar.pengajar_home', ['title' => 'Dashborad Pengajar']);
 })->middleware('auth:pengajar');
+Route::get('/admin', function () {
+    return view('admin.home_admin', ['title' => 'Admin']);
+})->middleware('auth:admin');
 //register perserta
 Route::get('/register', [UserController::class, 'index'])->middleware('guest');
 Route::post('/register/applod', [UserController::class, 'create']);
@@ -38,3 +42,9 @@ Route::post('/register_pengajar/applod', [PengajarController::class, 'store']);
 Route::get('/login_pengajar', [PengajarController::class, 'login_pengajar'])->middleware('guest');
 Route::post('/login_pengajar/applod', [PengajarController::class, 'login_pengajar_system']);
 Route::get('/logout_pengajar', [PengajarController::class, 'logout_pengajar']);
+//system login admin
+Route::get('/login_admin', [AdminController::class, 'login'])->middleware('guest');
+Route::post('/login_admin/applod', [AdminController::class, 'login_system']);
+Route::get('/logout_admin', [AdminController::class, 'logout']);
+Route::get('/register_admin', [AdminController::class, 'register'])->middleware('guest');
+Route::post('/register_admin/applod', [AdminController::class, 'aplod_data_admin']);

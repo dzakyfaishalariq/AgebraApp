@@ -18,21 +18,38 @@ class AdminController extends Controller
     //login system admin
     public function login_system(Request $request)
     {
-        $validate = $request->validate([
-            'username' => 'required',
+        $validatedata = $request->validate([
+            'email' => 'required|email',
             'password' => 'required'
         ]);
-        if (Auth::guard('admin')->attempt($validate)) {
-            return redirect('/admin')->with('success', 'Login Berhasil');
+        // cocokan Auth ke database pengajar dari inputan email dan password
+        if (Auth::guard('admin')->attempt($validatedata)) {
+            // jika cocokan true
+            return redirect('/admin')->with('success', 'Selamat anda berhasil login');
         } else {
-            return redirect('/admin/login')->with('error', 'Username atau Password Salah');
+            // jika cocokan false
+            return redirect('/login_admin')->with('error', 'Email atau Password salah');
         }
+    }
+    // aplod data admin ke database
+    public function register()
+    {
+        return view('register_admin', ['title' => 'Register']);
+    }
+    public function aplod_data_admin(Request $request)
+    {
+        $data = new Admin;
+        $data->username = $request->username;
+        $data->email = $request->email;
+        $password = bcrypt($request->password);
+        $data->password = $password;
+        $data->save();
     }
     public function logout(Request $request)
     {
         Auth::guard('admin')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/admin/login')->with('success', 'Logout Berhasil');
+        return redirect('/')->with('success', 'Logout Berhasil');
     }
 }
