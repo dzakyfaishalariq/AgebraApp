@@ -42,9 +42,13 @@ Route::post('/register_pengajar/applod', [PengajarController::class, 'store']);
 Route::get('/login_pengajar', [PengajarController::class, 'login_pengajar'])->middleware('guest');
 Route::post('/login_pengajar/applod', [PengajarController::class, 'login_pengajar_system']);
 Route::get('/logout_pengajar', [PengajarController::class, 'logout_pengajar']);
-//system login admin
+//system login admin dan manajemen admin
 Route::get('/login_admin', [AdminController::class, 'login'])->middleware('guest');
 Route::post('/login_admin/applod', [AdminController::class, 'login_system']);
 Route::get('/logout_admin', [AdminController::class, 'logout']);
 Route::get('/register_admin', [AdminController::class, 'register'])->middleware('guest');
 Route::post('/register_admin/applod', [AdminController::class, 'aplod_data_admin']);
+Route::put('/edit_data_admin/{admin}', [AdminController::class, 'ubah_data_admin']);
+Route::get('/hapus/admin/{admin}', [AdminController::class, 'hapus_data_admin']);
+Route::get('/area_perserta', [UserController::class, 'tampilkan_data_perserta']);
+Route::get('/hapus_data_user/{user}', [UserController::class, 'delete_data_user']);

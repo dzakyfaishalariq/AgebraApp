@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+
 
 class UserController extends Controller
 {
@@ -106,7 +108,7 @@ class UserController extends Controller
             $user->email = $email;
         }
         //password
-        $user->password = bcrypt($request->password);
+        $user->password = Crypt::encrypt($request->password);
         //simpan data user ke database
         $user->save();
         //redirect ke halaman registrasi dan tampilkan pesan sukses atau tidak
@@ -171,5 +173,30 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function tampilkan_data_perserta()
+    {
+        $data = User::all();
+        $jumlah_data = 0;
+        foreach ($data as $d) {
+            $jumlah_data += 1;
+        }
+        return view('/ra_perserta', ['title' => 'Data Admin', 'data' => $data, 'jumlah_data' => $jumlah_data]);
+    }
+
+    public function delete_data_user(User $user)
+    {
+        $file_foto = $user->foto;
+        if (file_exists($file_foto)) {
+            //hapus data foto
+            @unlink($file_foto);
+        }
+        $nilai = $user->delete();
+        if ($nilai) {
+            return redirect('/area_perserta')->with('success', 'Data Berhasil di hapus');
+        } else {
+            return redirect('/area_perserta')->with('error', 'maaf data tidak terhapus');
+        }
     }
 }

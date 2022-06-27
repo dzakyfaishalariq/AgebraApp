@@ -15,7 +15,8 @@
                                         <i class="fas fa-home"></i>
                                         Home
                                     </a>
-                                    <a href="#" class="list-group-item list-group-item-action shadow">                                  <i class="fas fa-user"></i>
+                                    <a href="#" class="list-group-item list-group-item-action shadow">                                 
+                                        <i class="fas fa-user"></i>
                                         Profil
                                     </a>
                                     <a href="#" class="list-group-item list-group-item-action shadow">

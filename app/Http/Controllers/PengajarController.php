@@ -158,4 +158,14 @@ class PengajarController extends Controller
     {
         //
     }
+
+    public function tampilan_data_pengajar()
+    {
+        $data = Pengajar::all();
+        $jumlah_data = 0;
+        foreach ($data as $d) {
+            $jumlah_data += 1;
+        }
+        return view('');
+    }
 }
